@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+<meta charset="UTF-8" />
+<link href="/css/style.css" rel="stylesheet" />
+<style type="text/css">
+.container {
+	font-size: 26px;
+}
+</style>
+</head>
+<body>
+
+
+
+
+	<section id="section" class="layout-content" layout:fragment="corpo">
+
+		<nav class="navbar navbar-expand-md bg-light ">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><i class="oi oi-caret-right"></i>
+						<span>Home</span></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div id="list-home" class="row">
+				<div class=" lista col-4">
+					<div class="list-group  " id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active"
+							id="list-spring-boot-list" data-toggle="list" href="#spring-boot"
+							role="tab" aria-controls="spring-boot">Spring-Boot</a> <a
+							class="list-group-item list-group-item-action" id="list-sts-list"
+							data-toggle="list" href="#sts" role="tab" aria-controls="sts">Spring
+							Tool Suite</a> <a class="list-group-item list-group-item-action"
+							id="list-thymeleaf-list" data-toggle="list" href="#thymeleaf"
+							role="tab" aria-controls="thymeleaf">Thymeleaf</a> <a
+							class="list-group-item list-group-item-action"
+							id="list-webjars-list" data-toggle="list" href="#webjars"
+							role="tab" aria-controls="webjars">WebJars</a> <a
+							class="list-group-item list-group-item-action"
+							id="list-hibernate-list" data-toggle="list" href="#hibernate"
+							role="tab" aria-controls="hibernate">Hibernate</a> <a
+							class="list-group-item list-group-item-action"
+							id="list-bootstrap-list" data-toggle="list" href="#bootstrap"
+							role="tab" aria-controls="bootstrap">Bootstrap 4</a>
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="spring-boot"
+							role="tabpanel" aria-labelledby="list-spring-boot-list">
+							<a href="https://projects.spring.io/spring-boot/">Spring Boot</a>
+							é um projeto da Spring que veio para facilitar o processo de
+							configuração e publicação de nossas aplicações. Você escolhe os
+							módulos que deseja através dos starters que inclui no pom. xml do
+							seu projeto. Eles, basicamente, são dependências que agrupam
+							outras dependências.
+						</div>
+						<!-- tab-pane fade show active esta classe faz com que esses textos desapareçam e que fique so um ativo para ser chamao pelo dta-target -->
+						<div class="tab-pane fade" id="sts" role="tabpanel"
+							aria-labelledby="list-sts-list">
+							The <a href="https://spring.io/tools">Spring Tool Suite</a>O é
+							uma IDE baseada em Eclipse que dá algumas facilidades para
+							trabalhos com o Spring no geral. Uma das coisas legais é que ele
+							nos ajuda a criar projetos com Spring Boot. Mas, o STS não é
+							pré-requisito para criação de projetos com Spring Boot.
+						</div>
+						<div class="tab-pane fade" id="thymeleaf" role="tabpanel"
+							aria-labelledby="list-thymeleaf-list">
+							<a href="http://www.thymeleaf.org/">Thymeleaf</a>é um motor de
+							templates que tem levantado uma questão interessante nos últimos
+							tempos: Por que usar Thymeleaf? JSP não é bom? Sim, o JSP é bom,
+							mas vale muito a pena dar uma chance para o Thymeleaf, que é uma
+							engine de templates com algumas vantagens importantes para nossos
+							projetos e vem ganhando muita popularidade.
+						</div>
+						<div class="tab-pane fade" id="webjars" role="tabpanel"
+							aria-labelledby="list-webjars-list">
+							<a href="https://www.webjars.org/">WebJars</a>é um projeto de
+							James Ward lançado em outubro de 2012[1] cujo objetivo principal
+							é empacotar bibliotecas client-side, como o Bootstrap e o jQuery,
+							em um JAR.
+						</div>
+						<div class="tab-pane fade" id="hibernate" role="tabpanel"
+							aria-labelledby="list-hibernate-list">
+							<a href="http://hibernate.org/orm/">Hibernate ORM</a> é a solução
+							ORM Java que consiste em uma ferramenta para realizar o
+							mapeamento objeto-relacional de forma completa. A tecnologia
+							segue a especificação JPA (Java Persistence API), que trata de
+							entidades, mapeamentos, interfaces para gerenciar a persistência
+							e linguagem de consulta (LUCKOW e MELO, 2010).
+						</div>
+						<div class="tab-pane fade" id="bootstrap" role="tabpanel"
+							aria-labelledby="list-bootstrap-list">
+							<a href="https://getbootstrap.com/">Bootstrap</a> é um framework
+							web com código-fonte aberto para desenvolvimento de componentes
+							de interface e front-end para sites e aplicações web usando HTML,
+							CSS e JavaScript, baseado em modelos de design para a tipografia,
+							melhorando a experiência do usuário em um site amigável e
+							responsivo.
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+	<ul class="squares"></ul>
+	<script type="text/javascript">
+      const ulSquares = document.querySelector(".squares");
+
+for(let i=0; i<15; i++){
+	const li = document.createElement("li");
+	
+	const random = (min, max) => Math.random()*(max-min)+min;
+	
+	const size = Math.floor(random(30,150));
+	const position = random(1,99);
+	const delay = random(5,0.1);
+	const duration = random(24,12);
+	
+	li.style.width = `${size}px`;
+	li.style.height = `${size}px`;
+	li.style.bottom = `-${size}px`;
+	li.style.left = `${position}%`;
+	li.style.animationDelay = `${delay}s`;
+	li.style.animationDuration = `${duration}s`;
+	li.style.animationTimingFunction = `cubic-bezier(${Math.random()},${Math.random()},${Math.random()},${Math.random()})`;
+	
+	ulSquares.appendChild(li);
+}
+</script>
+</body>
+</html>

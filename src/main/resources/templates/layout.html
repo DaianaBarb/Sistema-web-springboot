@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmls:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+
+<title>Spring-Boot</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
+
+<!-- Bootstrap core CSS -->
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
+
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
+</head>
+<body>
+	<header th:replace="fragments/header :: cabecalho">
+		<div>header</div>
+	</header>
+	<div class="layout-main">
+		<aside>
+			<nav th:replace="fragments/sidebar :: nav-sidebar">
+				<span>menu</span>
+			</nav>
+		</aside>
+		<section layout:fragment="corpo">
+			<div>Conteudo paginas</div>
+
+		</section>
+	</div>
+	<footer th:replace="fragments/footer :: rodape">
+		<div>footer</div>
+	</footer>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+	
+	 var url='';
+	 $('button[id*="btn_"]').click(function(){
+		url="http://app-thymeleaf.herokuapp.com/" + $(this)
+		.attr('id').split("_")[1]; 
+	 })
+	 
+	$('#ok_confirm').click(function(){
+		document.location.href = url;
+	});
+	 $(function() {
+			$('[data-toggle="popover"]').popover();
+		});
+		// verificar para que serve este codigo
+		$(document).ready(function(){
+			$(".navbar-toggle").click(function(){
+				$(".sidebar").toggleClass("sidebar-open");
+			})
+			
+		});
+		
+	</script>
+	<ul class="squares"></ul>
+	<script type="text/javascript">
+      const ulSquares = document.querySelector(".squares");
+
+for(let i=0; i<15; i++){
+	const li = document.createElement("li");
+	
+	const random = (min, max) => Math.random()*(max-min)+min;
+	
+	const size = Math.floor(random(10,50));
+	const position = random(1,99);
+	const delay = random(5,0.1);
+	const duration = random(24,12);
+	
+	li.style.width = `${size}px`;
+	li.style.height = `${size}px`;
+	li.style.bottom = `-${size}px`;
+	li.style.left = `${position}%`;
+	li.style.animationDelay = `${delay}s`;
+	li.style.animationDuration = `${duration}s`;
+	li.style.animationTimingFunction = `cubic-bezier(${Math.random()},${Math.random()},${Math.random()},${Math.random()})`;
+	
+	ulSquares.appendChild(li);
+}
+</script>
+</body>
+</html>

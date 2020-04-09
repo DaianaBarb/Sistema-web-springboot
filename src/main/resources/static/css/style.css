@@ -1,0 +1,169 @@
+/*
+ * Base structure
+ */
+ @keyframes up
+ {from
+  { opacity:0;
+	transform: translateY(0);
+}
+
+50%{
+opacity:1;
+}
+to {
+	opacity: 0;
+	transform: translateY(-800px) rotate(960deg);
+}
+
+}
+.squares li {
+	z-index: 100;
+	background-color: #B0E0E6 !important;
+	position: absolute;
+	animation: up 2s infinite;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	display: block;
+}
+ 
+html, body {
+	height: auto;
+}
+
+body {
+	padding-top: 56px;
+	padding-left: 0;
+}
+
+/*
+ * main layout
+ */
+.layout-main {
+	display: flex;
+	min-height: calc(100vh - 52px);
+	overflow: hidden;
+}
+
+/*
+ * Content
+ */
+.layout-content {
+	width: 100%;
+	padding-top: 0px;
+}
+
+.container {
+	width: 100%;
+	padding-top: 20px;
+}
+
+/*
+ * Sidebar
+ */
+.sidebar {
+	width: 0px;
+	height: 100vh;
+	border-top: 1px solid #eee;
+	border-right: 1px solid #eee;
+	background-image: linear-gradient(to bottom, #FA8072, #8B0000 50%) !important;
+	border-radius: 20px;
+	flex-shrink: 0;
+	overflow: hidden;
+	transition: width .5s;
+	border-radius: 20px;
+}
+
+.sidebar .nav {
+	margin-bottom: 0px;
+}
+
+.sidebar .nav-item {
+	width: 100%;
+}
+
+.sidebar .nav-item {
+	margin-left: 0;
+}
+
+.sidebar .nav-link {
+	border-radius: 0;
+}
+
+.sidebar ul li:hover a, .menu ul li.active a {
+	color: #777777;
+}
+
+.sidebar ul {
+	list-style: none;
+	padding: 10px 0px;
+}
+
+.sidebar ul li a {
+	display: block;
+	color: white;
+	padding: 10px 15px;
+	white-space: nowrap;
+}
+
+.sidebar.sidebar-open {
+	width: 300px;
+}
+
+/*
+ * nav-pills home
+ */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+	background-image: linear-gradient(to bottom, #FA8072, #8B0000) !important;
+	border-radius: 20px;
+}
+
+.list-group-item.active {
+	background-image: linear-gradient(to bottom, #FA8072, #8B0000) !important;
+}
+
+/*
+ * toogle do navbar do menu
+ */
+.navbar-toggle {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+/*
+ * Footer
+ */
+.layout-footer {
+	position: relative;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	height: 50px;
+	border-top: 1px solid #eeeeee;
+}
+header .navbar{
+	background: #FFF5EE !important;
+	 background-image: linear-gradient(to bottom, #FA8072 ,#8B0000 50%) !important; 
+ border-radius:20px !important;
+}
+.navbar button {
+	background: #8B0000 !important;
+}
+#section .navbar{
+	font-size: 20px;
+}
+.footer-copy {
+	font-size: 92%;
+	display: block;
+	color: #777777;
+	text-align: center;
+}
+
+@media (max-width: 900px) {
+	#list-home {display:none;}
+}
+
+#section {
+	background: #FFF5EE;
+}
